@@ -2,7 +2,7 @@ APP=mailpile
 
 ### docker image and container
 IMAGE=mailpile
-CONTAINER=mailpile-example-org
+CONTAINER=mailpile
 #PORTS="7080:7080 80:80 443:443"    ## ports to be forwarded when running stand-alone
 PORTS=""    ## no ports to be forwarded when running behind wsproxy
 
