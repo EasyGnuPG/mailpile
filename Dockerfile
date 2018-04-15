@@ -13,12 +13,14 @@ CMD ["/sbin/init"]
 
 RUN apt-get update && \
     apt-get -y upgrade && \
-    apt-get install curl apt-transport-https gnupg && \
-    curl -s https://packages.mailpile.is/deb/key.asc |sudo apt-key add - && \
-    echo "deb https://packages.mailpile.is/deb release main" |sudo tee /etc/apt/sources.list.d/000-mailpile.list && \
-    apt-get update && \
-    apt-get install mailpile && \
-    apt-get update && \
-    apt-get install mailpile-apache2        
+    apt-get -qq -y install curl && \
+    apt-get -y install apt-transport-https gnupg
+
+RUN curl -s https://packages.mailpile.is/deb/key.asc |apt-key add -
+RUN echo "deb https://packages.mailpile.is/deb release main" |tee /etc/apt/sources.list.d/000-mailpile.list
+
+RUN apt-get -y update && \
+    apt-get -y install mailpile && \
+    apt-get -y install mailpile-apache2
 
 WORKDIR /host
