@@ -24,14 +24,15 @@ A free & open modern, fast email client with user-friendly encryption and privac
      
    6. Initialize and fix the settings:
   
-   `
+   ```
       source ds cd @mailpile   # (or: cd /var/ds/mailpile/)
       nano settings.sh
-   `
+   ```
    
    7. Build image, create the container and configure it:
-   `  
+   
+   ```  
       ds build
       ds create
       ds config 
-   `
+   ```
